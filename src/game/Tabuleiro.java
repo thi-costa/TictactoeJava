@@ -1,6 +1,5 @@
 package game;
 
-import java.util.Scanner;
 
 public class Tabuleiro {
 	public int mat[][] = new int[3][3]; // Initialing the game board

@@ -10,7 +10,6 @@ public class ComputadorC extends Computador{
 		 * In this level, computer plays randomly
 		 */
 		
-		int sorteios = 0;
 		while(true) {			
 			Random aleatorio = new Random();
 			int randomInteger = aleatorio.nextInt(9); // Sorting moveposition
@@ -20,8 +19,7 @@ public class ComputadorC extends Computador{
 				// Is the position already filled?
 				tabuleiro.mat[linha][col] = -1;
 				break; // Movement finishes
-			}
-			sorteios++;		
+			}		
 		}
 		tabuleiro.jogadas++;
 				

@@ -80,6 +80,7 @@ public class Jogo {
 			if (opcao.equals("S")) { // New match
 				continue;
 			} else if (opcao.equals("N")) { // Game finished
+				teclado.close();				
 				break;
 			}
 

@@ -21,6 +21,7 @@ public class Jogador {
 				tabuleiro.mat[linha][col] = 1;
 				System.out.println("Jogador jogou");
 				tabuleiro.jogadas++;
+				teclado.close();
 				break;
 			}
 			else { // If the move is invalid, it will ask a valid movement
