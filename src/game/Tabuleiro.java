@@ -3,30 +3,30 @@ package game;
 import java.util.Scanner;
 
 public class Tabuleiro {
-	public int mat[][] = new int[3][3]; // Inicialização de tabuleiro
-	int jogadas = 0; // Contagem de jogadas
-	int[] placar = {0, 0, 0}; // Placar (vitórias de jogador, PC e empates)
+	public int mat[][] = new int[3][3]; // Initialing the game board
+	int jogadas = 0; // Counter of plays
+	int[] placar = {0, 0, 0}; // Scoreboard (player victories, computer victories, drawns)
 
 	public int situacao() {
-		// Retorna situação pelo método "ganhou()"
+		// Returns game situation
 		return ganhou();
 	}
 
 	public void visualizar() {
-		// Método para visualização do tabuleiro
+		// Method to visualie the game board
 		
 		String out = "";
 		for(int i=0; i<3;i++) {
 			for(int j=0; j<3; j++) {
 				if (mat[i][j] == 0) {
-					if(j<2) { // Casa do tabuleiro vazia
+					if(j<2) { // Poistion of the board is empty
 						out+="_|";										
 					}
 					else{
 						out+="_\n";						
 					}				
 				}
-				else if(mat[i][j] == 1) { // Casa em que jogador jogou
+				else if(mat[i][j] == 1) { // Player is on this position
 					if(j<2) {
 						out+="O|";										
 					}
@@ -34,7 +34,7 @@ public class Tabuleiro {
 						out+="O\n";						
 					}						
 				}
-				else if(mat[i][j] == -1) { // Casa em que computador jogou
+				else if(mat[i][j] == -1) { // Computer is on this position
 					if(j<2) {
 						out+="X|";										
 					}
@@ -44,12 +44,12 @@ public class Tabuleiro {
 				}
 			}
 		}
-		System.out.println(out); // Impressão do tabuleiro
+		System.out.println(out); // game board print
 		
 	}
 	
 	public int ganhou() {
-		// Método para avaliar se jogo continua (alguém ganhou ou se teve empate)
+		// Method to evaluate if the game is over
 
 		if((mat[0][0]==1 && mat[0][1]==1 && mat[0][2]==1)
 				||(mat[1][0]==1 && mat[1][1]==1 && mat[1][2]==1)
@@ -58,10 +58,10 @@ public class Tabuleiro {
 				||(mat[0][1]==1 && mat[1][1]==1 && mat[2][1]==1)
 				||(mat[0][2]==1 && mat[1][2]==1 && mat[2][2]==1)
 				||(mat[0][0]==1 && mat[1][1]==1 && mat[2][2]==1)
-				||(mat[0][2]==1 && mat[1][1]==1 && mat[2][0]==1)) {//Condição para jogador ganhar
+				||(mat[0][2]==1 && mat[1][1]==1 && mat[2][0]==1)) {// Player wins
 			System.out.println("Jogador ganhou!");
 			
-			// Atualização de placar
+			// Scoreboard update
 			placar[0]++;
 			placar();
 			return 1;
@@ -73,31 +73,31 @@ public class Tabuleiro {
 					||(mat[0][1]==-1 && mat[1][1]==-1 && mat[2][1]==-1)
 					||(mat[0][2]==-1 && mat[1][2]==-1 && mat[2][2]==-1)
 					||(mat[0][0]==-1 && mat[1][1]==-1 && mat[2][2]==-1)
-					||(mat[0][2]==-1 && mat[1][1]==-1 && mat[2][0]==-1)) {//Condição para PC ganhar
+					||(mat[0][2]==-1 && mat[1][1]==-1 && mat[2][0]==-1)) {// Computer wins
 			System.out.println("Computador ganhou!");
 			
-			// Atualização de placar
+			// Scoreboard update
 			placar[1]++;
 			placar();
 			return 1;
 		}
-		else if (jogadas==9) { // Condição para empate
+		else if (jogadas==9) { // Draws
 			System.out.println("Empate!");
 			
-			// Atualização de placar
+			// Scoreboard update
 			placar[2]++;
 			placar();
 			return 1;
 		}
-		else { // Jogo não finalizado
+		else { // Game is not over
 			return 0;
 		}
 	}
 	
-	public void placar() { // Método que retorna informações sobre placar
+	public void placar() { // Report of the scoreboard
 		System.out.println("-=-=-=-=-="+"Placar"+"-=-=-=-=-=");
-		System.out.println("Vitórias do jogador: " + placar[0]);
-		System.out.println("Vitórias do PC: " + placar[1]);
+		System.out.println("VitÃ³rias do jogador: " + placar[0]);
+		System.out.println("VitÃ³rias do PC: " + placar[1]);
 		System.out.println("Empates: " + placar[2]);
 		
 		

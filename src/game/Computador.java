@@ -1,7 +1,7 @@
 package game;
 
 public class Computador {
-	// Classe mãe de computador
+	// Computer superclass
 	
 	public void jogar(Tabuleiro tabuleiro) {		
 		

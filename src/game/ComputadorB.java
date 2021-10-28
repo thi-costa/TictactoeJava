@@ -4,22 +4,21 @@ public class ComputadorB  extends Computador{
 	@Override
 	public void jogar(Tabuleiro tabuleiro) {
 		/*
-		 * Nesse nível de dificuldade, computador joga da primeira posição até a última, na ordem
-		 * do tabuleiro
+		 * In this level, computer plays from the first to the last positions
 		 * 
 		 */
 		int jogou = 0;
 		for(int i=0; i<3;i++) {
 			for(int j=0; j<3;j++) {
 				if (tabuleiro.mat[i][j]!=-1 && tabuleiro.mat[i][j] != 1) {
-					// verificação se casa do tabuleiro não está preenchida
+					// Is the position already filled?
 					tabuleiro.mat[i][j] = -1;
 					jogou = 1;
 					break;
 				}
 							
 			}
-			if(jogou==1) { // Jogada finalizada
+			if(jogou==1) { // Movement finishes
 				break;
 			}
 		}
